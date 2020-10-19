@@ -2,8 +2,11 @@ ui<-fluidPage("Cinetica d'inattivazione virale",
     theme = shinytheme("cerulean"), 
     
     sidebarLayout(
-                   sidebarPanel("Input data"),
-                   mainPanel("Risultati")
+                   sidebarPanel(sidebarPanel(
+                     textInput('vec1', 'Enter a vector (comma delimited)', "")
+                   )),
+                   mainPanel("Risultati", 
+                             tableOutput("t"))
                  )
     
            
