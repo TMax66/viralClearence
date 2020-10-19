@@ -3,7 +3,7 @@ server<-function(input, output) {
 
 
   
-  dt <- reactive( tibble( tempo= c(0, 1.5, 3, 4.5), titolo = as.numeric(unlist(strsplit(input$vec1, ",")))))
+  dt <- reactive( tibble( tempo= c(0, 1.5, 3, 4.5), titolo = (input$vec1)))
   
   output$t <- renderTable(dt())
   
@@ -21,3 +21,6 @@ server<-function(input, output) {
   
   
 }
+
+
+### 10^vettore degli esponenti in base 10
