@@ -1,21 +1,26 @@
 shinyUI(
-  
-  pageWithSidebar(
-   
+    fluidPage(theme = shinytheme("cerulean"),
     headerPanel("Cinetica d'inattivazione virale")
     ,
     sidebarPanel(
-      wellPanel(
-        textInput('x', "enter X value here","")
+        textInput('x', "Inserisci i tempi","")
         ,
-        textInput('y', "enter Y value here","")
+        textInput('y', "Inserisci i titoli","")
         ,
         actionButton("submit","Submit"),
-        actionButton("reset", "Refresh")
-      )
+        actionButton("reset", "Refresh"), 
+        hr(),
+        br(),
+        tableOutput('table')
+     
     )
     ,
-    mainPanel(uiOutput('table'), 
-              plotOutput("graf"))
-    
+    mainPanel(
+      column(8, 
+      plotOutput("graf"), 
+      hr(),
+      textOutput("pred"), 
+      textOutput( "corr")))
+   
   ))
+

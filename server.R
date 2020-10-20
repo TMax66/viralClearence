@@ -5,30 +5,45 @@
     dt = reactive({
       if (input$submit > 0) {
         df <- data.frame(tempo=as.numeric(unlist(strsplit(input$x, ','))),titolo=as.numeric(unlist(strsplit(input$y, ','))))
-        df$titre <- 10^df$titolo
+        df$titre <- df$titolo
         return(list(df=df))
       }
     })
     
-    output$table <- renderTable({
-      if (is.null(dt())) {return()}
-      print(dt()$df[,c(1:2)])
-    }, 'include.rownames' = FALSE
-    , 'include.colnames' = TRUE
-    , 'sanitize.text.function' = function(x){x}
-    )
     
-    output$graf <- renderPlot(
+    output$table <- renderTable({
+      dt()$df[,c(1:2)]
+    })
+    
+    output$graf <- renderPlot(  
+      if (input$submit > 0) {
       dt()$df %>% as.tibble() %>% 
-        ggplot(aes(x=tempo, y =log10(titre)))+ geom_point()+
+        ggplot(aes(x=tempo, y =titre))+ geom_point()+
         geom_smooth(method = "lm",  formula = y ~ x, col = "blue")+
         stat_cor(aes(label = ..r.label..), label.y = 6)+
         stat_regline_equation(label.y = 5)+
         theme_ipsum_rc()
+      }  
     )
     
+    observeEvent(input$reset, {
+      session$reload()
+    })
+  
     
+    mod <- reactive(lm(titre ~ tempo, data =dt()$df))
+    output$pred <- renderText(
+      if (input$submit > 0) {
+    paste("Il titolo a 48h è: ", round(coef(mod())[1]+coef(mod())[2]*48, 2))
+      }
+    )
     
+    output$corr <- renderText(
+      if (input$submit > 0) {
+      paste("Il coefficiente di correlazione r è :" , round(cor(dt()$df$titre,dt()$df$tempo),2))
+      }
+    )
+ 
     
 
   })
