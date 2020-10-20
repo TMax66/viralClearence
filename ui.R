@@ -10,7 +10,8 @@ shinyUI(
         ,
         textInput('y', "enter Y value here","")
         ,
-        actionButton("submit","Submit")
+        actionButton("submit","Submit"),
+        actionButton("reset", "Refresh")
       )
     )
     ,
