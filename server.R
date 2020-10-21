@@ -4,7 +4,8 @@
     
     dt = reactive({
       if (input$submit > 0) {
-        df <- data.frame(tempo=as.numeric(unlist(strsplit(input$x, ','))),titolo=as.numeric(unlist(strsplit(input$y, ','))))
+        #df <- data.frame(tempo=as.numeric(unlist(strsplit(input$x, ','))),titolo=as.numeric(unlist(strsplit(input$y, ','))))
+        df <- data.frame(tempo=c(0,1.5,3,4.5),titolo=as.numeric(unlist(strsplit(input$y, ','))))
         df$titre <- df$titolo
         return(list(df=df))
       }

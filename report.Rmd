@@ -1,0 +1,54 @@
+---
+title: "IO BT/013- DETERMINAZIONE DELLA CINETICA VIRALE"
+author: ""
+date: ""
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+
+```
+
+## Struttura: ```r df$sede```
+
+#### N.rapporto di Non Conformità : ```r df$Nnc```
+#### Rif. al punto schema della PG 00/024 E : ```r df$pnorma```
+
+#### Origine: ```r df$origine``` (rif. ```r df$riforgine```)
+
+<hr/>
+# Descrizione: 
+ ```r df$descrizione ```
+
+$~$
+
+###### Data registrazione :  ```r df$dreg ```,  $~$ $~$ Matricola:  ```r df$matricola ```
+
+<hr/>
+
+### Impatto della NC su Attività/Prove 
+
+* Ripetizione:  ```r df$ripetizione ```
+* Informazione al cliente:  ```r df$informazione ```,  $~$ $~$ rif.informazione ```r df$rifinfo ```
+* Sospensione della prova: ```r df$sospensione ``` 
+* Valutazione: ```r df$valutazione ```
+* Altro: ```r df$altro ```
+
+## Prima valutazione delle cause
+ ```r df$cause ```
+
+#### Azione: ```r df$azione ```  $~$ $~$ $~$ $~$ rif.AC : ```r df$rifac ```
+
+## Definizione correzione da attuare subito
+ ```r df$correzione ```
+ 
+##### Responsabile: ```r df$respcorr ``` $~$ $~$ $~$ $~$ Data correzione: ```r df$dtcorr ```
+
+
+
+
+
+
+
+
+

@@ -3,8 +3,8 @@ shinyUI(
     headerPanel("Cinetica d'inattivazione virale")
     ,
     sidebarPanel(
-        textInput('x', "Inserisci i tempi","")
-        ,
+        # textInput('x', "Inserisci i tempi","")
+        # ,
         textInput('y', "Inserisci i titoli","")
         ,
         actionButton("submit","Submit"),
