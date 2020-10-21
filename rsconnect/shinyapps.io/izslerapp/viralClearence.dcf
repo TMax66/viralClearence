@@ -1,0 +1,13 @@
+name: viralClearence
+title: viralClearence
+username:
+account: izslerapp
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3063297
+bundleId: 3765570
+url: https://izslerapp.shinyapps.io/viralClearence/
+when: 1603264743.93006
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: cof.R|README.md|report.Rmd|scripts/codici.r
