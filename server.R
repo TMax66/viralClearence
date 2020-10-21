@@ -11,7 +11,7 @@
       }
     })
     
-    
+
     output$table <- renderTable({
       dt()$df[,c(1:2)]
     })
@@ -26,8 +26,6 @@
         theme_ipsum_rc() + labs(x= "tempo", y="titolo")+
           theme(axis.title.x = element_text(   size=12, face="bold"),
                 axis.title.y = element_text(  size=12, face="bold"))
-        
-      
       }  
     )
     
@@ -48,7 +46,5 @@
       paste("Il coefficiente di correlazione r è :" , round(cor(dt()$df$titre,dt()$df$tempo),2))
       }
     )
- 
-    
 
   })
