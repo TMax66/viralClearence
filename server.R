@@ -46,5 +46,18 @@
       paste("Il coefficiente di correlazione r è :" , round(cor(dt()$df$titre,dt()$df$tempo),2))
       }
     )
+    
+    ######REPORT####
+    ###Funzione per produrre e scaricare il il pdf del report###
+    
+    output$report <- downloadHandler(
+      filename = "IOBT/013.pdf",
+      content = function(f) {
+        e <- new.env()
+        rmarkdown::render('report.Rmd', output_format = rmarkdown::pdf_document(),
+                          output_file=f,
+                          envir = e)
+      }
+    ) 
 
   })

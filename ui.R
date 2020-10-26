@@ -11,7 +11,12 @@ shinyUI(
         actionButton("reset", "Refresh"), 
         hr(),
         br(),
-        tableOutput('table')
+        tableOutput('table'), 
+        
+        hr(),
+       
+        div(align="center",
+            downloadButton("report","download Report"))
        
      
     )
